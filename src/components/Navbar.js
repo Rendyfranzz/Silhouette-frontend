@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className=''>
             <ul className='flex flex-row justify-center items-center space-x-6'>
                 <l1>
-                    <NavLink to='/Home' className={({ isActive }) => isActive ? "text-cyan-500" : ""}>Home</NavLink>
+                    <NavLink to='/' className={({ isActive }) => isActive ? "text-cyan-500" : ""}>Home</NavLink>
                 </l1>
                 <l1>
                     <NavLink to='/About' className={({ isActive }) => isActive ? "text-cyan-500" : ""}>About</NavLink>
