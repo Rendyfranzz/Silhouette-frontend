@@ -14,9 +14,9 @@ const PriceList = () => {
                         <li><p>Max 6 orang</p></li>
                         <li><p>Free 10 SoftFiles</p></li>
                     </ul>
-                    <div className='flex flex-row h-4 justify-evenly relative'>
+                    <div className='flex flex-row h-4 justify-evenly relative overflow-hidden'>
                         <div className='w-[90%] -ml-8 border-b-2 border-dashed border-black'></div>
-                        <div className='absolute right-0 top-0'><p>20k</p></div>
+                        <div className='absolute -bottom-1 right-0'><p>20k</p></div>
                     </div>
 
                 </div>
@@ -38,7 +38,7 @@ const PriceList = () => {
                             </ul>
                         </div>
                         <div>
-                            <ul className='text-isi ml-6'>
+                            <ul className='text-isi'>
                                 <li><p>20k</p></li>
                                 <li><p>20k</p></li>
                                 <li><p>20k</p></li>
@@ -59,7 +59,7 @@ const PriceList = () => {
                             </ul>
                         </div>
                         <div>
-                            <ul className='text-isi ml-6'>
+                            <ul className='text-isi'>
                                 <li><p>20k</p></li>
                             </ul>
                         </div>
