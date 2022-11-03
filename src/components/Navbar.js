@@ -23,7 +23,7 @@ const Navbar = () => {
                     </li>
                     <li className="flex flex-row space-x-1">
                         <FaUserCircle size={20} />
-                        <NavLink to='/'>Login</NavLink>
+                        <NavLink to='/Login'>Login</NavLink>
                     </li>
                 </ul>
             </div>

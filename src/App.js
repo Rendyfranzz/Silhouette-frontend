@@ -5,8 +5,10 @@ import Navbar from './components/Navbar';
 import About from './layout/About';
 import BookOnline from './layout/BookOnline';
 import Home from './layout/Home';
+import Login from './layout/Login';
 import PageNotFound from './layout/PageNotFound';
 import PriceList from './layout/PriceList';
+import Register from './layout/Register';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path='/About' element={<About/>}/>
         <Route path='/PriceList' element={<PriceList/>}/>
         <Route path='/BookOnline' element={<BookOnline/>}/>
+        <Route path='/Login' element={<Login/>}/>
+        <Route path='/regsiter' element={<Register/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>
       <Footer/>
