@@ -1,12 +1,10 @@
-import React from 'react'
-
 const PriceList = () => {
     const garis = "w-full border-b-2 border-dashed border-black"
     const card = "w-[30%] h-72 rounded-md text-center bg-abu flex flex-col justify-center space-y-2"
     return (
         <div className='min-h-screen justify-center items-center flex flex-col font-popin overflow-x-hidden'>
             {/* Pricelist Atas */}
-            <div className=' w-[60%] mt-20'>
+            <div className='w-full p-4 md:p-0 md:w-[60%] mt-20'>
                 <div className='text-center'><h1 className="text-center text-title">Normal PriceList</h1></div>
                 <div><h1 className=" text-title">Self Photo Studio</h1>
                     <ul className='list-disc text-isi ml-6'>
@@ -68,7 +66,7 @@ const PriceList = () => {
             </div>
 
             {/* Price List Bawah */}
-            <div className='w-[60%] mt-10 justify-center relative'>
+            <div className='w-full md:w-[60%] mt-10 justify-center relative p-4 md:p-0'>
                 <div className='text-center'><h1 className='text-title'>Price List Paket Kamu</h1></div>
 
                 <div className='flex flex-row justify-evenly absolute w-full'>

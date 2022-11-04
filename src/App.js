@@ -2,13 +2,13 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import './App.css';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import About from './layout/About';
-import BookOnline from './layout/BookOnline';
-import Home from './layout/Home';
-import Login from './layout/Login';
-import PageNotFound from './layout/PageNotFound';
-import PriceList from './layout/PriceList';
-import Register from './layout/Register';
+import About from './pages/About';
+import BookOnline from './pages/BookOnline';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import PageNotFound from './pages/PageNotFound';
+import PriceList from './pages/PriceList';
+import Register from './pages/Register';
 
 function App() {
   return (
