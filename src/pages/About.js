@@ -23,6 +23,7 @@ const About = () => {
         <h1 className=' text-lg md:text-title text-black text-center font-bold'>Jam Operasional</h1>
         <div className='flex flex-row justify-center items-center space-x-6'>
           <table className='border-separate border-spacing-2 border-spacing-x-8 text-sm md:text-lg'>
+            <tbody>
             <tr>
               <td>Sabtu-Rabu</td>
               <td>10.00-20.00</td>
@@ -35,6 +36,7 @@ const About = () => {
               <td>Jumat</td>
               <td>Tutup</td>
             </tr>
+            </tbody>
           </table>
         </div>
       </div>

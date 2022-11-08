@@ -9,8 +9,16 @@ import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 import PriceList from './pages/PriceList';
 import Register from './pages/Register';
-
+import { useDispatch } from "react-redux"
+import { getMe } from './feature/authSlice';
+import { useEffect } from 'react';
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getMe())
+  },dispatch)
+
   return (
     <Router>
       <Navbar/>

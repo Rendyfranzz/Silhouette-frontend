@@ -66,12 +66,12 @@ const PriceList = () => {
             </div>
 
             {/* Price List Bawah */}
-            <div className='w-full md:w-[60%] mt-10 justify-center relative p-4 md:p-0'>
+            <div className='w-full md:w-[60%] mt-10 justify-center relative '>
                 <div className='text-center'><h1 className='text-title'>Price List Paket Kamu</h1></div>
 
-                <div className='flex flex-row justify-evenly absolute w-full'>
+                <div className='flex flex-row justify-evenly absolute w-full '>
                     <div className="w-[30%] h-72 rounded-md text-center bg-abu flex flex-col justify-center space-y-2 mt-10">
-                        <div><h1 className='text-title'>berDua</h1></div>
+                        <div><h1 className='tetx-lg md:text-title'>berDua</h1></div>
                         <div>
                             <ul>
                                 <li>

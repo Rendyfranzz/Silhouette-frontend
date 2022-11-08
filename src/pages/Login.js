@@ -26,8 +26,8 @@ const Login = () => {
     }
     return (
         <div className='h-screen flex justify-center items-center flex-col'>
-            <button className='absolute left-0 top-0'>Back</button>
-            <div className='w-[30%] h-[60%] bg-base'>
+            <button className='absolute left-10 top-24'>Back</button>
+            <div className='w-[80%] md:w-[30%] h-[60%]'>
                 <div className='flex flex-col justify-center items-center'>
                 <div><h1>LOGIN</h1></div>
                 <div>Belum Punya akun?<button><NavLink to="/regsiter" >Daftar</NavLink></button></div>

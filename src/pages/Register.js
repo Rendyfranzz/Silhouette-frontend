@@ -34,15 +34,15 @@ const Register = () => {
     }
     return (
         <div className='h-screen flex justify-center items-center flex-col'>
-            <button className='absolute left-0 top-0'>Back</button>
-            <div className='w-[30%] h-[60%] bg-base'>
+            <button className='absolute left-10 top-24'>Back</button>
+            <div className='w-[80%] md:w-[30%] h-[80%] md:h-[60%]'>
                 <div className='flex flex-col justify-center items-center'>
                     <div><h1>Register</h1></div>
                     <div>Sudah Punya akun?<button><NavLink to="/Login" >Login</NavLink></button></div>
                 </div>
-                <form className='flex flex-col space-y-6' onSubmit={register}>
+                <form className='flex flex-col space-y-2 md:space-y-6' onSubmit={register}>
                     {
-                        msg ? <p>{msg}</p> : "halo"
+                        msg ? <p>{msg}</p> : ""
                     }
                     <label>Nama</label>
                     <input className={styleinput} type="text" name='name' value={name} onChange={e => setName(e.target.value)} required></input>
