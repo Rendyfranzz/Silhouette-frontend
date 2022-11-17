@@ -1,10 +1,15 @@
 
 import { FaRegSmile, FaCheckCircle, FaRegImage, FaRegTimesCircle } from "react-icons/fa"
 import CardAbout from '../components/CardAbout'
+import Map from "../components/Map"
+import Navbar from "../components/Navbar"
 const About = () => {
   return (
+    <><Navbar/>
+   
     <div className='min-h-screen flex flex-col justify-center items-center font-popin'>
-      <div>
+
+      <div className="w-screen h-48 flex flex-col items-center justify-center p-2 overflow-hidden">
         <h1 className='text-title font-bold'>About</h1>
         <p> lorem</p>
       </div>
@@ -40,7 +45,13 @@ const About = () => {
           </table>
         </div>
       </div>
+
+      <div className="w-screen flex justify-center items-center flex-col space-y-4">
+      <h1 className=' text-lg md:text-title text-black text-center font-bold'>Lokasi</h1>
+          <Map/>
+      </div>
     </div>
+    </>
   )
 }
 

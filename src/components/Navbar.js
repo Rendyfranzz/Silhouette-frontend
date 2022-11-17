@@ -17,7 +17,7 @@ const Navbar = (children) => {
     }
  
     return (
-        <nav className='w-full md:w-screen font-popin text-[12px] md:text-[20px] flex justify-between p-2 md:p-4 overflow-x-hidden'>
+        <nav className='w-full md:w-screen font-popin text-[12px] md:text-[20px] flex justify-between py-2 md:py-2 px-8 overflow-x-hidden'>
             <div><img className='md:absolute top-0 w-14 md:w-32' src={logo} alt="logo" /></div>
             <div className=''>
                 <ul className='flex flex-row justify-center items-center space-x-2 md:space-x-6'>

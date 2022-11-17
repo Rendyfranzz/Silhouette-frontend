@@ -17,7 +17,16 @@ const Login = () => {
         if(user || isSuccess){
             navigate("/home")
         }
+        
     },[user,isSuccess,navigate])
+
+    useEffect(()=>{
+        if(user && user.role === "admin"){
+            navigate("/admin")
+        }
+        
+    },[user,isSuccess,navigate])
+
 
     const Auth = (e)=>{
         e.preventDefault();
