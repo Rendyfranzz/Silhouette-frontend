@@ -7,12 +7,13 @@ import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 import PriceList from './pages/PriceList';
 import Register from './pages/Register';
-import Admin from './pages/Admin';
 import { useDispatch } from "react-redux"
 import { getMe } from './feature/authSlice';
 import { useEffect } from 'react';
 import BookNext from './pages/BookNext';
-
+import Admin from './pages/AdminDashboard';
+import ListUser from './pages/ListUser';
+import ListOrder from './pages/ListOrder';
 function App() {
   const dispatch = useDispatch();
 
@@ -31,6 +32,8 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/booknext' element={<BookNext/>}/>
+        <Route path='/listuser' element={<ListUser/>}/>
+        <Route path='/listorder' element={<ListOrder/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>
     </Router>
