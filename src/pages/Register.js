@@ -23,6 +23,7 @@ const Register = () => {
                 confPassword:confPassword,
                 role:"user"
             });
+            console.log(name);
             navigate("/login")
         }
         catch(error){
