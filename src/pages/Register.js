@@ -12,7 +12,6 @@ const Register = () => {
     const styleinput = 'border-b-2 border-solid border-black focus:outline-0'
 
     const navigate = useNavigate();
-
     const register = async(e) => {
         e.preventDefault();
         try{
@@ -23,7 +22,6 @@ const Register = () => {
                 confPassword:confPassword,
                 role:"user"
             });
-            console.log(name);
             navigate("/login")
         }
         catch(error){

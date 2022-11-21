@@ -5,9 +5,11 @@ import { Button } from "../components/Button";
 import Navbar from "../components/Navbar";
 import TimeButton from "../components/TimeButton";
 import '../style/calender.css';
+import axios from "axios";
 const BookOnline = () => {
   const [value, onChange] = useState(new Date());
   const [paket, setPaket] = useState("")
+  const [jam, setJam] = useState("")
   useEffect(() => {
     console.log(value);
     console.log(paket);
@@ -16,7 +18,19 @@ const BookOnline = () => {
     e.preventDefault()
     console.log("klik")
   }
+  
+  useEffect(() => {
+    getJam()
+  }, [])
+  
+  const getJam = async () => {
+    const response = await axios.get(`http://localhost:5000/getjadwal`);
+    setJam(response.data)
+  }
 
+  // const jamString = jam?.all?.map((tes) => tes.jam)
+  // const available = jamString?.filter(x => jam.used.map(t => t.jam).includes(x));
+  // console.log({jamString, available})
   return (
     <>
       <Navbar />
@@ -32,17 +46,12 @@ const BookOnline = () => {
                   <div className=" w-[50%] min-h-full overflow-hidden ml-4">
                     {value.toDateString()}
                     <div className="grid grid-cols-2 gap-4 mt-4">
-                      <TimeButton>10.00</TimeButton>
-                      <TimeButton>10.15</TimeButton>
-                      <TimeButton>10.30</TimeButton>
-                      <TimeButton>10.35</TimeButton>
-                      <TimeButton>10.50</TimeButton>
-                      <TimeButton>11.05</TimeButton>
-                      <TimeButton>10.00</TimeButton>
-                      <TimeButton>10.00</TimeButton>
-                      <TimeButton>10.00</TimeButton>
-                      <TimeButton>10.00</TimeButton>
-                      <TimeButton>10.00</TimeButton>
+                      {jam &&
+                        jam.all.map((data) => {
+                          const isUsed = jam.used.map(t => t.jam).includes(data.jam)
+                          return <><TimeButton key={data.uuid}>{data.jam}</TimeButton><p>{JSON.stringify(isUsed)}</p></>
+                        })
+                      }
                     </div>
                   </div >
                 </div>

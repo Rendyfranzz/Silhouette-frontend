@@ -25,7 +25,7 @@ const Login = () => {
             navigate("/admin")
         }
         
-    },[user,isSuccess,navigate])
+    },[user,navigate])
 
 
     const Auth = (e)=>{
