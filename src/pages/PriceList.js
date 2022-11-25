@@ -1,6 +1,13 @@
 import Navbar from "../components/Navbar"
+import { useDispatch } from "react-redux"
+import { getMe } from '../feature/authSlice';
+import { useEffect } from 'react';
 
 const PriceList = () => {
+    const dispatch = useDispatch();
+    useEffect(()=>{
+      dispatch(getMe()) 
+    },[dispatch])
     const garis = "w-full border-b-2 border-dashed border-black"
     const card = "w-[30%] h-72 rounded-md text-center bg-abu flex flex-col justify-center space-y-2"
     return (

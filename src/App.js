@@ -7,19 +7,14 @@ import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 import PriceList from './pages/PriceList';
 import Register from './pages/Register';
-import { useDispatch } from "react-redux"
-import { getMe } from './feature/authSlice';
-import { useEffect } from 'react';
 import BookNext from './pages/BookNext';
 import Admin from './pages/AdminDashboard';
 import ListUser from './pages/ListUser';
 import ListOrder from './pages/ListOrder';
+import Payment from './pages/Payment';
 function App() {
-  const dispatch = useDispatch();
 
-  useEffect(()=>{
-    dispatch(getMe()) 
-  },[dispatch])
+ 
   return (
     <Router>
       <Routes>
@@ -34,6 +29,7 @@ function App() {
         <Route path='/booknext' element={<BookNext/>}/>
         <Route path='/listuser' element={<ListUser/>}/>
         <Route path='/listorder' element={<ListOrder/>}/>
+        <Route path='/payment' element={<Payment/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>
     </Router>

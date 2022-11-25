@@ -3,7 +3,15 @@ import { FaRegSmile, FaCheckCircle, FaRegImage, FaRegTimesCircle } from "react-i
 import CardAbout from '../components/CardAbout'
 import Map from "../components/Map"
 import Navbar from "../components/Navbar"
+import { useDispatch } from "react-redux"
+import { getMe } from '../feature/authSlice';
+import { useEffect } from 'react';
 const About = () => {
+
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(getMe()) 
+  },[dispatch])
   return (
     <><Navbar/>
    

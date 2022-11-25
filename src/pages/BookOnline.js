@@ -1,33 +1,51 @@
 import { useEffect, useState } from "react";
 import Calendar from 'react-calendar';
-import { NavLink } from "react-router-dom";
-import { Button } from "../components/Button";
+import { useNavigate } from "react-router-dom";
+import { Checkbox } from "../components/Checkbox";
 import Navbar from "../components/Navbar";
 import TimeButton from "../components/TimeButton";
 import '../style/calender.css';
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addJam,addPaket,addTanggal } from "../feature/bookSlice";
+
 const BookOnline = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [value, onChange] = useState(new Date());
   const [paket, setPaket] = useState("")
   const [jam, setJam] = useState("")
-  useEffect(() => {
-    console.log(value);
-    console.log(paket);
-  }, [paket, value]);
+  const [pilihJam, setPilihJam] = useState("")
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("klik")
+    dispatch(addTanggal(value.toDateString()))
+    dispatch(addJam(pilihJam))
+    dispatch(addPaket(paket))
+    navigate("/booknext")
   }
-  
-  useEffect(() => {
-    getJam()
-  }, [])
-  
-  const getJam = async () => {
-    const response = await axios.get(`http://localhost:5000/getjadwal`);
-    setJam(response.data)
+  const checked = (e) => {
+    setPaket(e.target.value)
+    const button = document.querySelector("input")
+    console.log(button);
   }
 
+
+  useEffect(() => {
+    getJam(value)
+    console.log(value);
+    console.log(paket);
+  }, [value, paket])
+
+  const getJam = async (value) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/getjadwal/${value.toDateString()}`);
+      setJam(response.data)
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
   // const jamString = jam?.all?.map((tes) => tes.jam)
   // const available = jamString?.filter(x => jam.used.map(t => t.jam).includes(x));
   // console.log({jamString, available})
@@ -49,7 +67,7 @@ const BookOnline = () => {
                       {jam &&
                         jam.all.map((data) => {
                           const isUsed = jam.used.map(t => t.jam).includes(data.jam)
-                          return <><TimeButton key={data.uuid}>{data.jam}</TimeButton><p>{JSON.stringify(isUsed)}</p></>
+                          return <div key={data.uuid}><TimeButton key={data.uuid} value={data.uuid} onClick={(e) => setPilihJam(e.target.value)}>{data.jam}</TimeButton><p>{JSON.stringify(isUsed)}</p></div>
                         })
                       }
                     </div>
@@ -61,17 +79,19 @@ const BookOnline = () => {
                 <h1 className="text-center text-title">Pilih paket</h1>
                 <div className="flex flex-col gap-4 mt-4">
                   <div className="grid grid-cols-2 gap-y-7 mt-4">
-                    <Button value={0} onClick={(e) => setPaket(e.target.value)}>berDua</Button>
-                    <Button value={1} onClick={(e) => setPaket(e.target.value)}>berEmpat</Button>
-                    <Button value={2} onClick={(e) => setPaket(e.target.value)}>berEnam</Button>
-                    <Button value={3} onClick={(e) => setPaket(e.target.value)}>Normal</Button>
+                    <Checkbox value={2} id="berdua" onClick={(e) => checked(e)}></Checkbox>
+                    <Checkbox value={4} id="berempat" onClick={(e) => checked(e)}></Checkbox>
+                    <Checkbox value={6} id="berenam" onClick={(e) => checked(e)}></Checkbox>
+                    <Checkbox value={8} id="berdelapan" onClick={(e) => checked(e)}></Checkbox>
                   </div>
                   <div>
                     <p>Kediri</p>
                     <p>{value.toDateString()} at </p>
                   </div>
-                  <button type="submit" className="w-24 bg-slate-500" >
-                    <NavLink to="/booknext">Next</NavLink>
+
+
+                  <button type="submit" className="w-24 bg-slate-500">
+                    submit
                   </button>
                 </div>
               </div>

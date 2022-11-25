@@ -14,24 +14,20 @@ const Login = () => {
     const {user,isError,isSuccess,isLoading,message}= useSelector((state)=> state.auth)
 
     useEffect(()=>{
-        if(user || isSuccess){
+        if(user && isSuccess && !isLoading){
             navigate("/home")
         }
-        
-    },[user,isSuccess,navigate])
-
-    useEffect(()=>{
-        if(user && user.role === "admin"){
+        if(user && user.role === "admin" && !isLoading){
             navigate("/admin")
         }
-        
-    },[user,navigate])
+       
+    },[user,isSuccess,navigate,isLoading])
 
 
     const Auth = (e)=>{
         e.preventDefault();
-        console.log({email,password});
         dispatch(loginUser({email,password}))
+       
     }
     return (
         <div className='h-screen flex justify-center items-center flex-col'>
@@ -45,7 +41,6 @@ const Login = () => {
                     { isError &&
                         <p>{message}</p>
                     }
-                    
                     <label>Email</label>
                     <input className={styleinput} type="email" name='email' value={email} onChange={e=>setEmail(e.target.value)} required></input>
 
