@@ -11,6 +11,7 @@ const Payment = () => {
     useEffect(() => {
         if (code) qr(code.qr_string)
     }, [code])
+
     
     const qr = async (text) => {
         try {
