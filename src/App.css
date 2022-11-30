@@ -1,3 +1,6 @@
 *{
     overflow-x: hidden;
 }
+.disabled{
+    background-color: aqua;
+}

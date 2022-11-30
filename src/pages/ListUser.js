@@ -52,7 +52,7 @@ const ListUser = () => {
                         </div>
                     </div>
 
-                    <div className="p-1.5 w-full inline-block align-middle">
+                    <div className="p-1.5 inline-block align-middle">
                         <div className="overflow-hidden border rounded-lg">
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-gray-50">

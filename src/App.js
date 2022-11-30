@@ -1,4 +1,4 @@
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import {Routes,Route, useLocation} from 'react-router-dom'
 import './App.css';
 import About from './pages/About';
 import BookOnline from './pages/BookOnline';
@@ -12,12 +12,13 @@ import Admin from './pages/AdminDashboard';
 import ListUser from './pages/ListUser';
 import ListOrder from './pages/ListOrder';
 import Payment from './pages/Payment';
+import { AnimatePresence } from 'framer-motion';
 function App() {
-
+  let location = useLocation()
  
   return (
-    <Router>
-      <Routes>
+      <AnimatePresence node='wait'>
+      <Routes key={location.pathname} location={location}>
         <Route path='/' element={<Home/>}/>
         <Route path='/Home' element={<Home/>}/> 
         <Route path='/About' element={<About/>}/>
@@ -32,7 +33,7 @@ function App() {
         <Route path='/payment' element={<Payment/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>
-    </Router>
+      </AnimatePresence>
   );
 }
 

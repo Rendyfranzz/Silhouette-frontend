@@ -1,7 +1,9 @@
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer";
 import { useDispatch } from "react-redux"
 import { getMe } from '../feature/authSlice';
 import { useEffect } from 'react';
+import AnimatedPage from "../components/AnimatedPage";
 
 const PriceList = () => {
     const dispatch = useDispatch();
@@ -11,6 +13,7 @@ const PriceList = () => {
     const garis = "w-full border-b-2 border-dashed border-black"
     const card = "w-[30%] h-72 rounded-md text-center bg-abu flex flex-col justify-center space-y-2"
     return (
+        <AnimatedPage>
         <>
             <Navbar />
             <div className='min-h-screen justify-center items-center flex flex-col font-popin overflow-x-hidden'>
@@ -174,7 +177,9 @@ const PriceList = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
+        </AnimatedPage>
     )
 }
 

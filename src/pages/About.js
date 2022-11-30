@@ -3,9 +3,11 @@ import { FaRegSmile, FaCheckCircle, FaRegImage, FaRegTimesCircle } from "react-i
 import CardAbout from '../components/CardAbout'
 import Map from "../components/Map"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 import { useDispatch } from "react-redux"
 import { getMe } from '../feature/authSlice';
 import { useEffect } from 'react';
+import AnimatedPage from "../components/AnimatedPage"
 const About = () => {
 
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const About = () => {
     dispatch(getMe()) 
   },[dispatch])
   return (
+    <AnimatedPage>
     <><Navbar/>
    
     <div className='min-h-screen flex flex-col justify-center items-center font-popin'>
@@ -59,7 +62,9 @@ const About = () => {
           <Map/>
       </div>
     </div>
+    <Footer/>
     </>
+    </AnimatedPage>
   )
 }
 

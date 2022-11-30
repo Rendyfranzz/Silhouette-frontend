@@ -1,22 +1,30 @@
 import React from 'react'
 import ImageHome from '../components/ImageHome'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { useDispatch } from "react-redux"
 import { getMe } from '../feature/authSlice';
 import { useEffect } from 'react';
+import home from "../image/home.jpg"
+import AnimatedPage from '../components/AnimatedPage'
 
 const Home = () => {
   const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(getMe()) 
-  },[dispatch])
+  useEffect(() => {
+    dispatch(getMe())
+  }, [dispatch])
   return (
-    <><Navbar/>
-    <div className='h-screen overflow-hidden'>
-      <div className='h-1/2'></div>
-      <ImageHome/>
-    </div>
-    </>
+    <AnimatedPage>
+      <><Navbar />
+        <div className='min-h-screen overflow-hidden space-y-4'>
+          <div className=' mt-10 h-1/2 flex justify-center items-center overflow-hidden px-10'>
+            <img className='contrast-50 hover:scale-105 hover:contrast-100 transition ease-in-out duration-500' src={home} alt='home' />
+          </div>
+          <div><ImageHome /></div>
+        </div>
+        <Footer />
+      </>
+    </AnimatedPage>
   )
 }
 

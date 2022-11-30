@@ -1,60 +1,67 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
-import { useDispatch,useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { loginUser } from "../feature/authSlice"
+import AnimatedPage from "../components/AnimatedPage"
+import { Notify, SuccessNotification } from "../components/Notify"
+
 const Login = () => {
 
-    const [email ,setEmail] = useState("")
-    const [password ,setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const styleinput = 'border-b-2 border-solid border-black focus:outline-0'
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {user,isError,isSuccess,isLoading,message}= useSelector((state)=> state.auth)
+    const { user, isError, isSuccess, isLoading, message } = useSelector((state) => state.auth)
 
-    useEffect(()=>{
-        if(user && isSuccess && !isLoading){
+    useEffect(() => {
+        if (user && isSuccess && !isLoading) {
+            SuccessNotification("Login Berhasil")
             navigate("/home")
         }
-        if(user && user.role === "admin" && !isLoading){
+        if (user && user.role === "admin" && !isLoading) {
+            SuccessNotification("Login Berhasil")
             navigate("/admin")
         }
-       
-    },[user,isSuccess,navigate,isLoading])
+    }, [user, isSuccess, navigate, isLoading])
 
 
-    const Auth = (e)=>{
+    const Auth = (e) => {
         e.preventDefault();
-        dispatch(loginUser({email,password}))
-       
+        dispatch(loginUser({ email, password }))
     }
     return (
-        <div className='h-screen flex justify-center items-center flex-col'>
-            <button className='absolute left-10 top-24'>Back</button>
-            <div className='w-[80%] md:w-[30%] h-[60%]'>
-                <div className='flex flex-col justify-center items-center'>
-                <div><h1>LOGIN</h1></div>
-                <div>Belum Punya akun?<button><NavLink to="/register" >Daftar</NavLink></button></div>
-                </div>
-                <form className='flex flex-col space-y-6' onSubmit={Auth}>
-                    { isError &&
-                        <p>{message}</p>
-                    }
-                    <label>Email</label>
-                    <input className={styleinput} type="email" name='email' value={email} onChange={e=>setEmail(e.target.value)} required></input>
-
-                    <label >Password</label>
-                    <input className={styleinput} type="Password" name='Password' value={password} onChange={e=>setPassword(e.target.value)} required ></input>
-
-                    <button type="submit" className='bg-black text-white font-bold w-28 rounded-sm mx-auto' >
-                        {
-                            isLoading ? "loading..." : "Login"
+        <AnimatedPage>
+            <div className='h-screen flex justify-center items-center flex-col'>
+                <button className='absolute left-10 top-24'>Back</button>
+                <div className='w-[80%] md:w-[30%] h-[60%]'>
+                    <div className='flex flex-col justify-center items-center'>
+                        <div><h1>LOGIN</h1></div>
+                        <div>Belum Punya akun?<button><NavLink to="/register" >Daftar</NavLink></button></div>
+                    </div>
+                    <form className='flex flex-col space-y-6' onSubmit={Auth}>
+                        {isError &&
+                            <p>{message}</p>
+                            
                         }
-                    </button>
-                </form>
+                        <label>Email</label>
+                        <input className={styleinput} type="email" name='email' value={email} onChange={e => setEmail(e.target.value)} required></input>
+
+                        <label >Password</label>
+                        <input className={styleinput} type="Password" name='Password' value={password} onChange={e => setPassword(e.target.value)} required ></input>
+
+                        <button type="submit" className='bg-black text-white font-bold w-28 rounded-sm mx-auto' >
+                            {
+                                isLoading ? "loading..." : "Login"
+                            }
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
+            <Notify/>
+        </AnimatedPage>
     )
 }
 

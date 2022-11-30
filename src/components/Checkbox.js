@@ -1,9 +1,8 @@
 import "../style/style.css"
 export const Checkbox = (props) => {
-  const { value, id } = props;
+  const { children } = props;
   return (
-    <>
-      <input type="button" value={value} {...props} className='cursor-pointer w-24 h-6 bg-zinc-400 rounded-md'></input>
-    </>
+    
+      <button type="button" {...props} className='cursor-pointer z-40 w-20 md:w-32 border-solids border-2 border-black rounded-sm'>{children}</button> 
   )
 }

@@ -3,21 +3,28 @@ import AdminLayout from './AdminLayout'
 import axios from 'axios'
 
 const ListOrder = () => {
-  const [users,setUsers] = useState([])
-
+  const [transaction,setTransaction] = useState([])
+//   const [jam ,setJam] = useState("")
   useEffect(()=>{
-    getUsers();
+    getTransaction();
   },[])
+  useEffect(()=>{
+    console.log(transaction);
+  },[transaction])
 
-  const getUsers = async () =>{
-    const response = await axios.get("http://localhost:5000/users");
-    setUsers(response.data)
+  const getTransaction = async () =>{
+    const response = await axios.get(`${process.env.REACT_APP_URL}/transaction`);
+    setTransaction(response.data)
   }
 
-  const deleteUser = async (userId) =>{
-    await axios.delete(`http://localhost:5000/users/${userId}`)
-    getUsers()
-  }
+//   const getTime = async (time) => {
+//     try {
+//         const response = await axios.get(`${process.env.REACT_APP_URL}/getjadwalid/${time}`);
+//         setJam(response.data.jam)
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
   return (
    <AdminLayout>
      <div className="mt-20 min-h-screen">
@@ -77,7 +84,13 @@ const ListOrder = () => {
                                             scope="col"
                                             className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                                         >
-                                            Role
+                                            Status
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                        >
+                                            Jam
                                         </th>
                                         <th
                                             scope="col"
@@ -95,8 +108,8 @@ const ListOrder = () => {
                                 </thead>
                                 <tbody className="divide-y divide-gray-200">
                                   {
-                                    users.map((data,index)=>(
-                                      <tr key={data.uuid}>
+                                    transaction.map((data,index)=>(
+                                      <tr key={data.transuuid}>
                                         <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                                             {index+1}
                                         </td>
@@ -104,10 +117,15 @@ const ListOrder = () => {
                                             {data.name}
                                         </td>
                                         <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                                            {data.email}
+                                            {data.lunas}
                                         </td>
                                         <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                                            {data.role}
+                                            {data.lunas}
+                                        </td>
+                                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                                            {
+                                                data.timeid 
+                                            }
                                         </td>
                                         <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                             <button
@@ -117,7 +135,7 @@ const ListOrder = () => {
                                             </button>
                                         </td>
                                         <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                            <button onClick={()=>deleteUser(data.uuid)}
+                                            <button
                                                 className="text-red-500 hover:text-red-700"
                                             >
                                                 Delete
