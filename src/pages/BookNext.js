@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import { addQr } from "../feature/bookSlice";
 import axios from 'axios'
 import AnimatedPage from '../components/AnimatedPage'
+import { Notification, Notify } from "../components/Notify";
+import Footer from '../components/Footer'
 
 const BookNext = () => {
     const navigate = useNavigate();
@@ -26,6 +28,7 @@ const BookNext = () => {
     },[jam])
 
     const createTransaction = async (e) => {
+        if(!user) return Notification("Harap Login ke Akun Anda")
         const Id = +new Date();
         const qrId = `silhouette-${Id}`
         dispatch(addQr(qrId))
@@ -65,11 +68,11 @@ const BookNext = () => {
             <>
                 <Navbar />
                 <div className='h-screen w-screen flex flex-row items-center justify-center font-popin'>
-                    <div className='w-full flex justify-center'>
-                        <form className='flex flex-row space-x-8' onSubmit={createTransaction}>
+                    <div className='w-full flex justify-center p-4'>
+                        <form className='flex flex-col md:flex-row justify-center items-center md:space-y-0 space-y-8 md:space-x-8' onSubmit={createTransaction}>
                             <div className='flex flex-col w-72'>
                                 {
-                                    user ? "" : <p>Login untuk Pemesanan</p>
+                                    user ? "" : <p className='text-center md:text-left'>Login untuk Pemesanan</p>
                                 }
                                 {
                                     user ? <><label>Nama</label>
@@ -99,6 +102,8 @@ const BookNext = () => {
                         </form>
                     </div>
                 </div>
+                <Notify/>
+                <Footer/>
             </>
         </AnimatedPage>
     )

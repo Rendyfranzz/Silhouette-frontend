@@ -19,7 +19,6 @@ const About = () => {
     <><Navbar/>
    
     <div className='min-h-screen flex flex-col justify-center items-center font-popin'>
-
       <div className="w-screen h-48 flex flex-col items-center justify-center p-2 overflow-hidden">
         <h1 className='text-title font-bold'>About</h1>
         <p> lorem</p>

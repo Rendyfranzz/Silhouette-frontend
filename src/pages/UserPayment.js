@@ -49,7 +49,7 @@ const UserPayment = () => {
                         <div className="flex flex-col">
                             <h1 className='text-center font-bold text-xl'>Riwayat Transaksi</h1>
                             <div className="flex justify-center">
-                                <table className="w-[80%] divide-y divide-gray-200 border rounded-lg">
+                                <table className="w-[80%] scale-50 md:scale-100 divide-y divide-gray-200 border rounded-lg">
                                     <thead className="bg-gray-50">
                                         <tr>
                                             <th

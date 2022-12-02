@@ -42,19 +42,19 @@ const Payment = () => {
     return (
         <div className='h-screen items-center flex justify-center'>
             <div className="flex justify-center">
-                <div className="block rounded-lg shadow-lg bg-slate-300 max-w-sm text-center">
-                    <div className="py-3 px-6">
+                <div className="block border-2 w-72 md:w-full rounded-lg shadow-lg max-w-sm text-center p-4">
+                    <div className="py-3 px-6 text-xl font-medium">
                         Pembayaran
                     </div>
                     <div className="p-6 space-y-2">
                         <img className='m-auto' src={code} alt="qrcode" />
-                        <h5 className="text-gray-900 text-xl font-medium mb-2">Special title treatment</h5>
+                        <h5 className="text-gray-900 text-xl font-medium mb-2">Scan Qris di Atas</h5>
                         <p className="text-gray-700 text-base mb-4">
                             With supporting text below as a natural lead-in to additional content.
                         </p>
                     </div>
-                    <div>
-                        <button className='border-2 border-black rounded-md hover:bg-green-500' onClick={getTrans}>Lihat status Pembayaran</button>
+                    <div className=''>
+                        <button className='border-2 text-sm p-2 border-black rounded-md hover:bg-green-500' onClick={getTrans}>Lihat Riwayat Transaksi</button>
                     </div>
                 </div>
             </div>

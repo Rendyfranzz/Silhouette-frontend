@@ -12,6 +12,7 @@ import { addJam, addPaket, addTanggal } from "../feature/bookSlice";
 import AnimatedPage from "../components/AnimatedPage";
 import 'react-toastify/dist/ReactToastify.css';
 import { Notification, Notify } from "../components/Notify";
+import { ClipLoader } from "react-spinners";
 
 
 const BookOnline = () => {
@@ -23,6 +24,7 @@ const BookOnline = () => {
   const [pilihJam, setPilihJam] = useState("")
   const [temp,setTemp] = useState("")
   const [tempTime,setTempTime] = useState("")
+  const [loading,setLoading] = useState(true)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -44,6 +46,7 @@ const BookOnline = () => {
 
 
   useEffect(() => {
+    setLoading(true)
     getJam(value)
   }, [value])
 
@@ -51,6 +54,7 @@ const BookOnline = () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_URL}/getjadwal/${value.toDateString()}`);
       setJam(response.data)
+      setLoading(false)
     } catch (err) {
       console.log(err);
     }
@@ -63,7 +67,7 @@ const BookOnline = () => {
       <>
         <Navbar />
         <div className='min-h-screen flex justify-center items-center'>
-          <form className="w-full flex justify-center" onSubmit={handleSubmit}>
+          <form className="w-full flex justify-center -mt-20 md:mt-0" onSubmit={handleSubmit}>
             <div className="w-full md:w-[80%] md:h-[70%]">
               <div className="flex flex-col justify-center items-center md:flex-row space-x-3">
                 <div className="w-[60%] space-y-1 text-center">
@@ -71,14 +75,23 @@ const BookOnline = () => {
                   <div className="flex flex-col md:flex-row">
                     <Calendar onChange={onChange} value={value} />
                     <div className="w-full md:w-[50%] min-h-full overflow-hidden md:ml-4">
-                      <div className="grid grid-cols-2 gap-4 mt-4">
-                        {jam &&
-                          jam.all.map((data) => {
-                            const isUsed = jam.used.map(t => t.jam).includes(data.jam)
-                            return (isUsed ? <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s bg-red-600" disabled>{data.jam}</TimeButton> :
-                              <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s" onClick={(e) => {setPilihJam(e.target.value);setTempTime(e.target.innerHTML)}}>{data.jam}</TimeButton>)
-                          })
-                        }
+                      <div className="grid grid-cols-2 gap-4 mt-4 md:m-0">
+                        {
+                          loading ? <ClipLoader
+                          color="#000000"
+                          loading={loading}
+                          size={100}
+                          aria-label="Loading Spinner"
+                          data-testid="loader"
+                      /> : jam &&
+                        jam.all.map((data) => {
+                          const isUsed = jam.used.map(t => t.jam).includes(data.jam)
+                          return (isUsed ? <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s bg-red-600 ml-4 md:ml-0" disabled>{data.jam}</TimeButton> :
+                            <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s ml-4 md:ml-0" onClick={(e) => {setPilihJam(e.target.value);setTempTime(e.target.innerHTML)}}>{data.jam}</TimeButton>)
+                        })
+                      }
+                        
+                        
                       </div>
                     </div >
                   </div>
@@ -87,7 +100,7 @@ const BookOnline = () => {
                 <div className="w-full md:w-[40%] mt-0 md:-mt-12 flex flex-col justify-center">
                   <h1 className="text-center text-title">Pilih paket</h1>
                   <div className="flex flex-col gap-4">
-                    <div className="grid grid-cols-2 gap-y-7 mt-4">
+                    <div className="grid grid-cols-2 gap-y-7 mt-4 m-auto">
                       <Checkbox value={55000} id="2" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berDua</Checkbox>
                       <Checkbox value={65000} id="4" onClick={(e) => { checked(e);setTemp(e.target.innerHTML)}}>berEMPAT</Checkbox>
                       <Checkbox value={80000} id="6" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berENAM</Checkbox>
