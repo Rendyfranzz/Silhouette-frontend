@@ -4,7 +4,8 @@ const initialState = {
     name:"",
     tanggal:"",
     jam:"",
-    paket:""
+    paket:"",
+    qr:"",
 }
 
 export const bookSlice = createSlice({
@@ -22,12 +23,13 @@ export const bookSlice = createSlice({
         }
         ,addPaket(state,action){
             state.paket = action.payload
-        }
-        
+        },addQr(state,action){
+            state.qr = action.payload
+        } 
     },
     
 })
 
 export const {reset} = bookSlice.actions
-export const {addName,addJam,addPaket,addTanggal} = bookSlice.actions
+export const {addName,addJam,addPaket,addTanggal,addQr} = bookSlice.actions
 export default bookSlice.reducer;

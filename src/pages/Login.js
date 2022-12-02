@@ -18,11 +18,11 @@ const Login = () => {
 
     useEffect(() => {
         if (user && isSuccess && !isLoading) {
-            SuccessNotification("Login Berhasil")
+            SuccessNotification("Berhasil Login")
             navigate("/home")
         }
         if (user && user.role === "admin" && !isLoading) {
-            SuccessNotification("Login Berhasil")
+            SuccessNotification("Berhasil Login")
             navigate("/admin")
         }
     }, [user, isSuccess, navigate, isLoading])

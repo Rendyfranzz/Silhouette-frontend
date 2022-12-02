@@ -88,10 +88,9 @@ const BookOnline = () => {
                   <h1 className="text-center text-title">Pilih paket</h1>
                   <div className="flex flex-col gap-4">
                     <div className="grid grid-cols-2 gap-y-7 mt-4">
-                      <Checkbox value={2} id="2" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berDua</Checkbox>
-                      <Checkbox value={4} id="4" onClick={(e) => { checked(e);setTemp(e.target.innerHTML)}}>berEMPAT</Checkbox>
-                      <Checkbox value={6} id="6" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berENAM</Checkbox>
-                      <Checkbox value={8} id="8" onClick={(e) => { checked(e);setTemp(e.target.innerHTML)}}>berDelapan</Checkbox>
+                      <Checkbox value={55000} id="2" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berDua</Checkbox>
+                      <Checkbox value={65000} id="4" onClick={(e) => { checked(e);setTemp(e.target.innerHTML)}}>berEMPAT</Checkbox>
+                      <Checkbox value={80000} id="6" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berENAM</Checkbox>
                     </div>
                     <div className="m-auto md:m-0">
                       <p>Kediri</p>

@@ -28,12 +28,12 @@ function Notification (value) {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "light", 
       }); 
 }
 
 function SuccessNotification (value) {
-    toast.info(value, {
+    toast.success(value, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
