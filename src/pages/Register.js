@@ -34,14 +34,14 @@ const Register = () => {
     }
     return (
         <AnimatedPage>
-            <div className='h-screen flex justify-center items-center flex-col'>
+            <div className='h-screen text-black flex justify-center items-center flex-col space-y-4 md:space-y-0'>
                 <button className='absolute left-10 top-24'>Back</button>
-                <div className='w-[80%] md:w-[30%] h-[80%] md:h-[60%]'>
+                <div className='w-[80%] md:w-[30%] h-[60%] md:h-[80%]'>
                     <div className='flex flex-col justify-center items-center'>
-                        <div><h1>Register</h1></div>
-                        <div>Sudah Punya akun?<button><NavLink to="/Login" >Login</NavLink></button></div>
+                        <p className="h1">Register</p>
+                        <div className="flex flex-row"><p>Sudah Punya akun?</p><button><NavLink to="/Login" >Login</NavLink></button></div>
                     </div>
-                    <form className='flex flex-col space-y-2 md:space-y-6' onSubmit={register}>
+                    <form className='flex flex-col space-y-2 md:space-y-6 p-2' onSubmit={register}>
                         {
                             msg ? <p>{msg}</p> : ""
                         }

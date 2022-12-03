@@ -45,7 +45,7 @@ const UserPayment = () => {
                         data-testid="loader"
                     />
                 </div> :
-                    <div className="mt-20 min-h-screen font-popin w-full transition-all duration-1000">
+                    <div className="mt-20 min-h-screen font-popin w-full transition-all duration-1000 text-black">
                         <div className="flex flex-col">
                             <h1 className='text-center font-bold text-xl'>Riwayat Transaksi</h1>
                             <div className="flex justify-center">

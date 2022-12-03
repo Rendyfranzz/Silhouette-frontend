@@ -34,7 +34,7 @@ const Login = () => {
     }
     return (
         <AnimatedPage>
-            <div className='h-screen flex justify-center items-center flex-col'>
+            <div className='h-screen flex justify-center items-center flex-col text-black'>
                 <button className='absolute left-10 top-24'>Back</button>
                 <div className='w-[80%] md:w-[30%] h-[60%]'>
                     <div className='flex flex-col justify-center items-center'>

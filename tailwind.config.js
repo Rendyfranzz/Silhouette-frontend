@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        'white': '#ffffff',
+        'light': '#04ff00',
         'base': '#FFFFFF',
         'abu':'#E5E5E5',
         'abu2':'#484747'
@@ -14,11 +14,6 @@ module.exports = {
       fontFamily:{
         'popin': 'Poppins, sans-serif',
         'serat' :'Montserrat, sans-serif'
-      },
-      fontSize: {
-        title: '24px',
-        isi: '16px',
-        xl: '1.25rem',
       }
     },
   },

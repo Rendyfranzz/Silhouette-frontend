@@ -67,12 +67,12 @@ const BookNext = () => {
         <AnimatedPage>
             <>
                 <Navbar />
-                <div className='h-screen w-screen flex flex-row items-center justify-center font-popin'>
+                <div className='h-screen w-screen flex flex-row items-center justify-center font-popin text-black'>
                     <div className='w-full flex justify-center p-4'>
                         <form className='flex flex-col md:flex-row justify-center items-center md:space-y-0 space-y-8 md:space-x-8' onSubmit={createTransaction}>
                             <div className='flex flex-col w-72'>
                                 {
-                                    user ? "" : <p className='text-center md:text-left'>Login untuk Pemesanan</p>
+                                    user ? "" : <p className='text-center md:text- h2 md:h1'>Login untuk Pemesanan</p>
                                 }
                                 {
                                     user ? <><label>Nama</label>
@@ -89,7 +89,7 @@ const BookNext = () => {
                             <div className=''>
                                 <div className='flex flex-col space-y-2'>
                                     <h1 className='font-bold'>Detail Pembayaran</h1>
-                                    <p className=' text-isi'>Kediri</p>
+                                    <p>Kediri</p>
                                     <p>{tanggal} {choice.jam}</p>
 
                                     <div className='flex flex-row space-x-3'>

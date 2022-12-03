@@ -66,12 +66,12 @@ const BookOnline = () => {
     <AnimatedPage>
       <>
         <Navbar />
-        <div className='min-h-screen flex justify-center items-center'>
+        <div className='min-h-screen flex justify-center items-center text-black'>
           <form className="w-full flex justify-center -mt-20 md:mt-0" onSubmit={handleSubmit}>
             <div className="w-full md:w-[80%] md:h-[70%]">
               <div className="flex flex-col justify-center items-center md:flex-row space-x-3">
                 <div className="w-[60%] space-y-1 text-center">
-                  <h1 className=" text-title">Pilih tanggal dan waktu</h1>
+                  <p className="h1 mb-0 md:mb-2">Pilih tanggal dan waktu</p>
                   <div className="flex flex-col md:flex-row">
                     <Calendar onChange={onChange} value={value} />
                     <div className="w-full md:w-[50%] min-h-full overflow-hidden md:ml-4">
@@ -98,7 +98,7 @@ const BookOnline = () => {
                 </div>
 
                 <div className="w-full md:w-[40%] mt-0 md:-mt-12 flex flex-col justify-center">
-                  <h1 className="text-center text-title">Pilih paket</h1>
+                  <p className="text-center h1">Pilih paket</p>
                   <div className="flex flex-col gap-4">
                     <div className="grid grid-cols-2 gap-y-7 mt-4 m-auto">
                       <Checkbox value={55000} id="2" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berDua</Checkbox>

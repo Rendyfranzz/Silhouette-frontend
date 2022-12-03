@@ -40,7 +40,7 @@ const Payment = () => {
         navigate(`/userdetail/${user.uuid}`)
     }
     return (
-        <div className='h-screen items-center flex justify-center'>
+        <div className='h-screen items-center flex justify-center text-black'>
             <div className="flex justify-center">
                 <div className="block border-2 w-72 md:w-full rounded-lg shadow-lg max-w-sm text-center p-4">
                     <div className="py-3 px-6 text-xl font-medium">
@@ -48,7 +48,7 @@ const Payment = () => {
                     </div>
                     <div className="p-6 space-y-2">
                         <img className='m-auto' src={code} alt="qrcode" />
-                        <h5 className="text-gray-900 text-xl font-medium mb-2">Scan Qris di Atas</h5>
+                        <p className="text-gray-900 text-xl font-medium mb-2">Scan Qris di Atas</p>
                         <p className="text-gray-700 text-base mb-4">
                             With supporting text below as a natural lead-in to additional content.
                         </p>
