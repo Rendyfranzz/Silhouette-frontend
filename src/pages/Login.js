@@ -38,12 +38,12 @@ const Login = () => {
                 <button className='absolute left-10 top-24'>Back</button>
                 <div className='w-[80%] md:w-[30%] h-[60%]'>
                     <div className='flex flex-col justify-center items-center'>
-                        <div><h1>LOGIN</h1></div>
-                        <div>Belum Punya akun?<button><NavLink to="/register" >Daftar</NavLink></button></div>
+                        <div><p className="h1">LOGIN</p></div>
+                        <div className="flex flex-row"><p className="p">Belum Punya akun?</p><button className=" overflow-hidden"><NavLink to="/register" >Daftar</NavLink></button></div>
                     </div>
                     <form className='flex flex-col space-y-6' onSubmit={Auth}>
                         {isError &&
-                            <p>{message}</p>
+                            <p className="p">{message}</p>
                             
                         }
                         <label>Email</label>

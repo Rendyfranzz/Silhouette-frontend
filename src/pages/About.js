@@ -21,16 +21,16 @@ const About = () => {
     <div className='min-h-screen flex flex-col justify-center items-center text-black'>
       <div className="w-screen h-48 flex flex-col items-center justify-center p-2 overflow-hidden">
         <h1 className='font-bold'>About</h1>
-        <p> lorem</p>
+        <p className="p"> lorem</p>
       </div>
 
       <div className='w-screen h-48 bg-black p-2 overflow-hidden'>
         <h1 className=' text-white text-center font-bold'>WHY BOOK WITH US?</h1>
         <div className='flex flex-row justify-center items-center space-x-6 p-4'>
-          <CardAbout><FaRegSmile size={60} /><p>No Deposit!</p></CardAbout>
-          <CardAbout><FaCheckCircle size={60} />Quality Approved!</CardAbout>
-          <CardAbout><FaRegTimesCircle size={60} />No Cancellation Penalty!</CardAbout>
-          <CardAbout><FaRegImage size={60} />A Variety of Concepts!</CardAbout>
+          <CardAbout><FaRegSmile size={60} /><p className="p text-black">No Deposit!</p></CardAbout>
+          <CardAbout><FaCheckCircle size={60} /><p className="p text-black">Quality Approved!</p></CardAbout>
+          <CardAbout><FaRegTimesCircle size={60} /><p className="p text-black">No Cancellation Penalty!</p></CardAbout>
+          <CardAbout><FaRegImage size={60} /><p className="p text-black">A Variety of Concepts!</p></CardAbout>
         </div>
       </div>
 
@@ -57,7 +57,7 @@ const About = () => {
       </div>
 
       <div className="w-screen flex justify-center items-center flex-col space-y-4">
-      <h1 className='text-black text-center font-bold'>Lokasi</h1>
+      <p className='h1 text-center font-bold'>Lokasi</p>
           <Map/>
       </div>
     </div>

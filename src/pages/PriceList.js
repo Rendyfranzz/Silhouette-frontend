@@ -22,13 +22,13 @@ const PriceList = () => {
                     <p className="text-center h1">Normal PriceList</p>
                     <div><p className="h1">Self Photo Studio</p>
                         <ul className='list-disc ml-6'>
-                            <li><p>Unlimited Shoot</p></li>
-                            <li><p>Max 6 orang</p></li>
-                            <li><p>Free 10 SoftFiles</p></li>
+                            <li><p className="p">Unlimited Shoot</p></li>
+                            <li><p className="p">Max 6 orang</p></li>
+                            <li><p className="p">Free 10 SoftFiles</p></li>
                         </ul>
                         <div className='flex flex-row h-4 justify-evenly relative overflow-hidden'>
                             <div className='w-[90%] -ml-8 border-b-2 border-dashed border-black'></div>
-                            <div className='absolute -bottom-1 right-0'><p>20k</p></div>
+                            <div className='absolute -bottom-1 right-0'><p className="p">20k</p></div>
                         </div>
 
                     </div>
@@ -37,9 +37,9 @@ const PriceList = () => {
                         <div className='flex flex-row'>
                             <div className='w-[40%]'>
                                 <ul className='list-disc ml-6'>
-                                    <li><p>Waktu Max 5 Menit/Sesi</p></li>
-                                    <li><p>Tambahan 1 Orang</p></li>
-                                    <li><p>Tambahan 1x Cetak</p></li>
+                                    <li><p className="p">Waktu Max 5 Menit/Sesi</p></li>
+                                    <li><p className="p">Tambahan 1 Orang</p></li>
+                                    <li><p className="p">Tambahan 1x Cetak</p></li>
                                 </ul>
                             </div>
                             <div className='w-[60%]'>
@@ -51,9 +51,9 @@ const PriceList = () => {
                             </div>
                             <div>
                                 <ul className=''>
-                                    <li><p>20k</p></li>
-                                    <li><p>20k</p></li>
-                                    <li><p>20k</p></li>
+                                    <li><p className="p">20k</p></li>
+                                    <li><p className="p">20k</p></li>
+                                    <li><p className="p">20k</p></li>
                                 </ul>
                             </div>
                         </div></div>
@@ -62,7 +62,7 @@ const PriceList = () => {
                         <div className='flex flex-row'>
                             <div className='w-[40%]'>
                                 <ul className='list-disc ml-6'>
-                                    <li><p>Colored all soft file</p></li>
+                                    <li><p className="p">Colored all soft file</p></li>
                                 </ul>
                             </div>
                             <div className='w-[60%]'>
@@ -72,7 +72,7 @@ const PriceList = () => {
                             </div>
                             <div>
                                 <ul className=''>
-                                    <li><p>20k</p></li>
+                                    <li><p className="p">20k</p></li>
                                 </ul>
                             </div>
                         </div>
@@ -89,24 +89,24 @@ const PriceList = () => {
                             <div>
                                 <ul>
                                     <li>
-                                        <p>Unlimited Shoot</p>
+                                        <p className="p">Unlimited Shoot</p>
                                     </li>
                                     <li>
-                                        <p>Durasi 10 Menit</p>
+                                        <p className="p">Durasi 10 Menit</p>
                                     </li>
                                     <li>
-                                        <p>Maks 2 orang</p>
+                                        <p className="p">Maks 2 orang</p>
                                     </li>
                                     <li>
-                                        <p>Free Cetak 2x</p>
+                                        <p className="p">Free Cetak 2x</p>
                                     </li>
                                     <li>
-                                        <p>All softfile</p>
+                                        <p className="p">All softfile</p>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <p>55k</p>
+                                <p className="p">55k</p>
                             </div>
                         </div>
 
@@ -115,24 +115,24 @@ const PriceList = () => {
                             <div>
                                 <ul>
                                     <li>
-                                        <p>Unlimited Shoot</p>
+                                        <p className="p">Unlimited Shoot</p>
                                     </li>
                                     <li>
-                                        <p>Durasi 10 Menit</p>
+                                        <p className="p">Durasi 10 Menit</p>
                                     </li>
                                     <li>
-                                        <p>Maks 4 orang</p>
+                                        <p className="p">Maks 4 orang</p>
                                     </li>
                                     <li>
-                                        <p>Free Cetak 3x</p>
+                                        <p className="p">Free Cetak 3x</p>
                                     </li>
                                     <li>
-                                        <p>All softfile</p>
+                                        <p className="p">All softfile</p>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <p className=''>65k</p>
+                                <p className='p'>65k</p>
                             </div>
                         </div>
 
@@ -141,24 +141,24 @@ const PriceList = () => {
                             <div>
                                 <ul>
                                     <li>
-                                        <p>Unlimited Shoot</p>
+                                        <p className="p">Unlimited Shoot</p>
                                     </li>
                                     <li>
-                                        <p>Durasi 10 Menit</p>
+                                        <p className="p">Durasi 10 Menit</p>
                                     </li>
                                     <li>
-                                        <p>Maks 6 orang</p>
+                                        <p className="p">Maks 6 orang</p>
                                     </li>
                                     <li>
-                                        <p>Free Cetak 4x</p>
+                                        <p className="p">Free Cetak 4x</p>
                                     </li>
                                     <li>
-                                        <p>All softfile</p>
+                                        <p className="p">All softfile</p>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <p className=''>80k</p>
+                                <p className='p'>80k</p>
                             </div>
                         </div>
                     </div>
@@ -168,9 +168,9 @@ const PriceList = () => {
                             <div><h1 className=' text-center'>Tambahan:</h1></div>
                             <div>
                                 <ul className='list-disc space-y-2'>
-                                    <li><p>Tambah waktu : 10k(5 menit)</p></li>
-                                    <li><p>Tambah Orang : 10k(per Orang)</p></li>
-                                    <li><p>Tambah Cetak : 10k(per Lembar)</p></li>
+                                    <li><p className="p">Tambah waktu : 10k(5 menit)</p></li>
+                                    <li><p className="p">Tambah Orang : 10k(per Orang)</p></li>
+                                    <li><p className="p">Tambah Cetak : 10k(per Lembar)</p></li>
                                 </ul>
                             </div>
                         </div>

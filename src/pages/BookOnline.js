@@ -71,11 +71,11 @@ const BookOnline = () => {
             <div className="w-full md:w-[80%] md:h-[70%]">
               <div className="flex flex-col justify-center items-center md:flex-row space-x-3">
                 <div className="w-[60%] space-y-1 text-center">
-                  <p className="h1 mb-0 md:mb-2">Pilih tanggal dan waktu</p>
+                  <p className="h1 mb-0 md:mb-2 mt-10 md:mt-0" >Pilih tanggal dan waktu</p>
                   <div className="flex flex-col md:flex-row">
                     <Calendar onChange={onChange} value={value} />
                     <div className="w-full md:w-[50%] min-h-full overflow-hidden md:ml-4">
-                      <div className="grid grid-cols-2 gap-4 mt-4 md:m-0">
+                      <div className="grid grid-cols-2 gap-4 mt-4 md:m-0 overflow-hidden">
                         {
                           loading ? <ClipLoader
                           color="#000000"
@@ -106,10 +106,10 @@ const BookOnline = () => {
                       <Checkbox value={80000} id="6" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berENAM</Checkbox>
                     </div>
                     <div className="m-auto md:m-0">
-                      <p>Kediri</p>
-                      <p>{value.toDateString()} jam {tempTime} paket {temp}  </p>
+                      <p className="p text-black">Kediri</p>
+                      <p className="p text-black">{value.toDateString()} jam {tempTime} paket {temp}  </p>
                     </div>
-                    <button type="submit" className="w-24 border-2 hover:bg-slate-500 m-auto md:m-0">
+                    <button type="submit" className="w-24 border-2 overflow-hidden hover:bg-slate-500 m-auto md:m-0">
                       submit
                     </button>
                   </div>

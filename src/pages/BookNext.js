@@ -89,11 +89,11 @@ const BookNext = () => {
                             <div className=''>
                                 <div className='flex flex-col space-y-2'>
                                     <h1 className='font-bold'>Detail Pembayaran</h1>
-                                    <p>Kediri</p>
-                                    <p>{tanggal} {choice.jam}</p>
+                                    <p className='p text-black font-medium'>Kediri</p>
+                                    <p className='p text-black'>{tanggal} {choice.jam}</p>
 
                                     <div className='flex flex-row space-x-3'>
-                                        <p>Total Bayar:Rp {paket}</p>
+                                        <p className='p text-black'>Total Bayar:Rp {paket}</p>
                                     </div>
                                 </div>
                                 <button type="submit" className="w-24 bg-slate-500" >Bayar

@@ -39,7 +39,7 @@ const Register = () => {
                 <div className='w-[80%] md:w-[30%] h-[60%] md:h-[80%]'>
                     <div className='flex flex-col justify-center items-center'>
                         <p className="h1">Register</p>
-                        <div className="flex flex-row"><p>Sudah Punya akun?</p><button><NavLink to="/Login" >Login</NavLink></button></div>
+                        <div className="flex flex-row"><p className="p">Sudah Punya akun?</p><button><NavLink to="/Login" >Login</NavLink></button></div>
                     </div>
                     <form className='flex flex-col space-y-2 md:space-y-6 p-2' onSubmit={register}>
                         {
