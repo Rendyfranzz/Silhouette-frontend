@@ -14,6 +14,7 @@ import Footer from '../components/Footer'
 const BookNext = () => {
     const navigate = useNavigate();
     const [choice, setChoice] = useState("")
+    const [pesan,setPesan] = useState("")
     const { user } = useSelector((state) => state.auth)
     const { jam, tanggal, paket } = useSelector((state) => state.book)
     const styleinput = 'border-2 border-solid border-gray-500 focus:outline-0'
@@ -38,7 +39,8 @@ const BookNext = () => {
                 name: user.name,
                 price: paket,
                 lunas: "belum",
-                tanggal: tanggal,
+                tanggal:tanggal ,
+                pesan : pesan,
                 timeid: jam,
                 qrId: qrId,
                 uuid: user.uuid
@@ -76,13 +78,13 @@ const BookNext = () => {
                                 }
                                 {
                                     user ? <><label>Nama</label>
-                                        <input className={styleinput} type="text" name='name' value={user.name} required></input>
+                                        <input className={styleinput} type="text" name='name' defaultValue={user.name} disabled></input>
                                         <label>Email</label>
-                                        <input className={styleinput} type="email" name='email' value={user.email} required></input>
+                                        <input className={styleinput} type="email" name='email' defaultValue={user.email} disabled></input>
                                         <label>Nomor Hp</label>
-                                        <input className={styleinput} type="number" name='no'></input>
+                                        <input className={styleinput} type="text" name='no' defaultValue={user.hp} disabled></input>
                                         <label>Pesan</label>
-                                        <input className={styleinput} type="text" name='pesan' ></input></> : ""
+                                        <input className={styleinput} type="text" name='pesan' value={pesan} onChange={(e)=>setPesan(e.target.value)}></input></> : ""
                                 }
                             </div>
 

@@ -25,6 +25,7 @@ const BookOnline = () => {
   const [temp,setTemp] = useState("")
   const [tempTime,setTempTime] = useState("")
   const [loading,setLoading] = useState(true)
+  const newtanggal = value.toDateString()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -52,7 +53,7 @@ const BookOnline = () => {
 
   const getJam = async (value) => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/getjadwal/${value.toDateString()}`);
+      const response = await axios.get(`${process.env.REACT_APP_URL}/getjadwal/${newtanggal.slice(0,10)}`);
       setJam(response.data)
       setLoading(false)
     } catch (err) {

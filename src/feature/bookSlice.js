@@ -16,7 +16,7 @@ export const bookSlice = createSlice({
         addName(state,action){
             state.name = action.payload
         },addTanggal(state,action){
-            state.tanggal = action.payload
+            state.tanggal = action.payload.slice(0,10)
         }
         ,addJam(state,action){
             state.jam = action.payload

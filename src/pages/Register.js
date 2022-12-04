@@ -9,6 +9,7 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confPassword, setConfPassword] = useState("")
+    const [hp,setHp] = useState("")
     const [msg, setMsg] = useState("")
     const styleinput = 'border-b-2 border-solid border-black focus:outline-0'
 
@@ -19,6 +20,7 @@ const Register = () => {
             await axios.post(`${process.env.REACT_APP_URL}/users`, {
                 name: name,
                 email: email,
+                hp: hp,
                 password: password,
                 confPassword: confPassword,
                 role: "user"
@@ -36,10 +38,10 @@ const Register = () => {
         <AnimatedPage>
             <div className='h-screen text-black flex justify-center items-center flex-col space-y-4 md:space-y-0'>
                 <button className='absolute left-10 top-24'>Back</button>
-                <div className='w-[80%] md:w-[30%] h-[60%] md:h-[80%]'>
+                <div className='w-[80%] md:w-[30%] h-[70%] md:h-[90%]'>
                     <div className='flex flex-col justify-center items-center'>
                         <p className="h1">Register</p>
-                        <div className="flex flex-row"><p className="p">Sudah Punya akun?</p><button><NavLink to="/Login" >Login</NavLink></button></div>
+                        <div className="flex flex-row"><p className="p text-black">Sudah Punya akun?</p><button><NavLink className="underline" to="/Login" >Login</NavLink></button></div>
                     </div>
                     <form className='flex flex-col space-y-2 md:space-y-6 p-2' onSubmit={register}>
                         {
@@ -50,6 +52,9 @@ const Register = () => {
 
                         <label>Email</label>
                         <input className={styleinput} type="email" name='email' value={email} onChange={e => setEmail(e.target.value)} required></input>
+                        
+                        <label>No Hp</label>
+                        <input className={styleinput} type="text" name='hp' value={hp} onChange={e => setHp(e.target.value)} required></input>
 
                         <label >Password</label>
                         <input className={styleinput} type="Password" name='Password' value={password} onChange={e => setPassword(e.target.value)} required ></input>
