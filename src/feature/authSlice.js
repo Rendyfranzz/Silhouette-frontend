@@ -20,6 +20,8 @@ export const loginUser = createAsyncThunk("user/loginUser",async(user,thunkAPI)=
             }
         });
         console.log(response.data);
+        console.log(response.data.headers['Content-Type']); 
+        sessionStorage.setItem("session", response.data.uuid);
         return response.data
     }catch(error){
         if(error.response){
