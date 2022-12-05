@@ -19,7 +19,6 @@ export const loginUser = createAsyncThunk("user/loginUser",async(user,thunkAPI)=
                 'Content-Type': 'application/json'
             }
         });
-        console.log(response.data);
         console.log(response.data.headers['Content-Type']); 
         sessionStorage.setItem("session", response.data.uuid);
         return response.data
