@@ -15,12 +15,8 @@ export const loginUser = createAsyncThunk("user/loginUser",async(user,thunkAPI)=
             email:user.email,
             password:user.password
         },{
-            headers:{
-                'Content-Type': 'application/json'
-            }
+            withCredentials: true
         });
-        console.log(response.data.headers['Content-Type']); 
-        sessionStorage.setItem("session", response.data.uuid);
         return response.data
     }catch(error){
         if(error.response){
@@ -32,7 +28,9 @@ export const loginUser = createAsyncThunk("user/loginUser",async(user,thunkAPI)=
 
 export const getMe = createAsyncThunk("user/getMe",async(_,thunkAPI)=>{
     try{
-        const response = await axios.get(`${process.env.REACT_APP_URL}/me`);
+        const response = await axios.get(`${process.env.REACT_APP_URL}/me`,{
+            withCredentials: true
+        });
         return response.data
     }catch(error){
         if(error.response){
