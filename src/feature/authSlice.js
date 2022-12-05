@@ -19,6 +19,7 @@ export const loginUser = createAsyncThunk("user/loginUser",async(user,thunkAPI)=
                 'Content-Type': 'application/json'
             }
         });
+        console.log(response.data.headers);
         return response.data
     }catch(error){
         if(error.response){
