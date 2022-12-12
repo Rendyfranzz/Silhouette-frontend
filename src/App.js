@@ -14,6 +14,7 @@ import ListOrder from './pages/ListOrder';
 import Payment from './pages/Payment';
 import { AnimatePresence } from 'framer-motion';
 import UserPayment from './pages/UserPayment';
+import Payback from './pages/Payback';
 function App() {
   let location = useLocation()
  
@@ -32,6 +33,7 @@ function App() {
         <Route path='/listuser' element={<ListUser/>}/>
         <Route path='/listorder' element={<ListOrder/>}/>
         <Route path='/payment' element={<Payment/>}/>
+        <Route path='/payback/:qrid' element={<Payback/>}/>
         <Route path='/userdetail/:uuid' element={<UserPayment/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>

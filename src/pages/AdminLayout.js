@@ -7,7 +7,7 @@ const AdminLayout = ({children}) => {
     <>
     <div className='flex flex-row relative'>
     <Sidebar/>
-    <div>
+    <div className='w-screen'>
         {children}
     </div>
     </div>

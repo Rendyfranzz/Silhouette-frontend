@@ -29,11 +29,13 @@ const BookNext = () => {
     },[jam])
 
     const createTransaction = async (e) => {
+        e.preventDefault();
+        // console.log({jam,tanggal,paket});
+        // console.log(user);
         if(!user) return Notification("Harap Login ke Akun Anda")
         const Id = +new Date();
         const qrId = `silhouette-${Id}`
         dispatch(addQr(qrId))
-        e.preventDefault();
         try {
             await axios.post(`${process.env.REACT_APP_URL}/transaction`, {
                 name: user.name,
@@ -43,9 +45,12 @@ const BookNext = () => {
                 pesan : pesan,
                 timeid: jam,
                 qrId: qrId,
-                uuid: user.uuid
+            },{
+                withCredentials:true
             });
-            await axios.get(`${process.env.REACT_APP_URL}/getqr/${qrId}&&${paket}`);
+            await axios.get(`${process.env.REACT_APP_URL}/getqr/${qrId}&&${paket}`,{
+                withCredentials:true
+            });
             navigate("/payment")
         }
         catch (error) {

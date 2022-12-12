@@ -1,4 +1,3 @@
-import "../style/style.css"
 export const Checkbox = (props) => {
   const { children } = props;
   return (

@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavSide } from './NavSide'
 import {FaHome,FaUser,FaShoppingCart,FaSignOutAlt} from 'react-icons/fa'
 import { useDispatch } from "react-redux"
