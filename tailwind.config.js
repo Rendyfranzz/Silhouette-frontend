@@ -8,12 +8,12 @@ module.exports = {
         current: 'currentColor',
         'light': '#04ff00',
         'base': '#FFFFFF',
-        'abu':'#E5E5E5',
-        'abu2':'#484747'
+        'abu': '#E5E5E5',
+        'abu2': '#484747'
       },
-      fontFamily:{
+      fontFamily: {
         'popin': 'Poppins, sans-serif',
-        'serat' :'Montserrat, sans-serif'
+        'serat': 'Montserrat, sans-serif'
       }
     },
   },

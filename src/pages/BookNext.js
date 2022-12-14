@@ -14,7 +14,7 @@ import Footer from '../components/Footer'
 const BookNext = () => {
     const navigate = useNavigate();
     const [choice, setChoice] = useState("")
-    const [pesan,setPesan] = useState("")
+    const [pesan, setPesan] = useState("")
     const { user } = useSelector((state) => state.auth)
     const { jam, tanggal, paket } = useSelector((state) => state.book)
     const styleinput = 'border-2 border-solid border-gray-500 focus:outline-0'
@@ -26,13 +26,14 @@ const BookNext = () => {
 
     useEffect(() => {
         getChoice(jam)
-    },[jam])
+
+    }, [jam])
 
     const createTransaction = async (e) => {
         e.preventDefault();
         // console.log({jam,tanggal,paket});
         // console.log(user);
-        if(!user) return Notification("Harap Login ke Akun Anda")
+        if (!user) return Notification("Harap Login ke Akun Anda")
         const Id = +new Date();
         const qrId = `silhouette-${Id}`
         dispatch(addQr(qrId))
@@ -41,15 +42,15 @@ const BookNext = () => {
                 name: user.name,
                 price: paket,
                 lunas: "belum",
-                tanggal:tanggal ,
-                pesan : pesan,
+                tanggal: tanggal,
+                pesan: pesan,
                 timeid: jam,
                 qrId: qrId,
-            },{
-                withCredentials:true
+            }, {
+                withCredentials: true
             });
-            await axios.get(`${process.env.REACT_APP_URL}/getqr/${qrId}&&${paket}`,{
-                withCredentials:true
+            await axios.get(`${process.env.REACT_APP_URL}/getqr/${qrId}&&${paket}`, {
+                withCredentials: true
             });
             navigate("/payment")
         }
@@ -79,7 +80,7 @@ const BookNext = () => {
                         <form className='flex flex-col md:flex-row justify-center items-center md:space-y-0 space-y-8 md:space-x-8' onSubmit={createTransaction}>
                             <div className='flex flex-col w-72'>
                                 {
-                                    user ? "" : <p className='text-center md:text- h2 md:h1'>Login untuk Pemesanan</p>
+                                    user ? "" : <p className='text-center md:h1 animate-pulse '>Login untuk Pemesanan</p>
                                 }
                                 {
                                     user ? <><label>Nama</label>
@@ -89,7 +90,7 @@ const BookNext = () => {
                                         <label>Nomor Hp</label>
                                         <input className={styleinput} type="text" name='no' defaultValue={user.hp} disabled></input>
                                         <label>Pesan</label>
-                                        <input className={styleinput} type="text" name='pesan' value={pesan} onChange={(e)=>setPesan(e.target.value)}></input></> : ""
+                                        <input className={styleinput} type="text" name='pesan' value={pesan} onChange={(e) => setPesan(e.target.value)}></input></> : ""
                                 }
                             </div>
 
@@ -109,8 +110,8 @@ const BookNext = () => {
                         </form>
                     </div>
                 </div>
-                <Notify/>
-                <Footer/>
+                <Notify />
+                <Footer />
             </>
         </AnimatedPage>
     )

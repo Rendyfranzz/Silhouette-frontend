@@ -22,10 +22,12 @@ const BookOnline = () => {
   const [paket, setPaket] = useState("")
   const [jam, setJam] = useState("")
   const [pilihJam, setPilihJam] = useState("")
-  const [temp,setTemp] = useState("")
-  const [tempTime,setTempTime] = useState("")
-  const [loading,setLoading] = useState(true)
+  const [temp, setTemp] = useState("")
+  const [tempTime, setTempTime] = useState("")
+  const [loading, setLoading] = useState(true)
+  const [expired, setExpired] = useState(false)
   const newtanggal = value.toDateString()
+  const today = new Date()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -33,7 +35,7 @@ const BookOnline = () => {
     dispatch(addJam(pilihJam))
     dispatch(addPaket(paket))
     if (pilihJam && paket) navigate("/booknext")
-    Notification("Pilih jam dan paket")
+    Notification("Pilih jam lainnya")
   }
   const checked = (e) => {
     setPaket(e.target.value)
@@ -48,14 +50,20 @@ const BookOnline = () => {
 
   useEffect(() => {
     setLoading(true)
-    getJam(value)
+    setExpired(false)
+    getJam()
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
-  const getJam = async (value) => {
+  const getJam = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/getjadwal/${newtanggal.slice(0,10)}`);
-      setJam(response.data)
-      setLoading(false)
+      if (value.getDate() >= today.getDate()) {
+        const response = await axios.get(`${process.env.REACT_APP_URL}/getjadwal/${newtanggal}`);
+        setJam(response.data)
+        setLoading(false)
+      } else {
+        setExpired(true)
+      }
     } catch (err) {
       console.log(err);
     }
@@ -76,23 +84,24 @@ const BookOnline = () => {
                   <div className="flex flex-col md:flex-row">
                     <Calendar onChange={onChange} value={value} />
                     <div className="w-full md:w-[50%] min-h-full overflow-hidden md:ml-4">
-                      <div className="grid grid-cols-2 gap-4 mt-4 md:m-0 overflow-hidden">
+                      <div className={` mt-4 md:m-0 overflow-hidden ${expired || loading ? "flex justify-center items-center h-full" : "grid grid-cols-2 gap-4"}`}>
                         {
-                          loading ? <ClipLoader
-                          color="#000000"
-                          loading={loading}
-                          size={100}
-                          aria-label="Loading Spinner"
-                          data-testid="loader"
-                      /> : jam &&
-                        jam.all.map((data) => {
-                          const isUsed = jam.used.map(t => t.jam).includes(data.jam)
-                          return (isUsed ? <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s bg-red-600 ml-4 md:ml-0" disabled>{data.jam}</TimeButton> :
-                            <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s ml-4 md:ml-0" onClick={(e) => {setPilihJam(e.target.value);setTempTime(e.target.innerHTML)}}>{data.jam}</TimeButton>)
-                        })
-                      }
-                        
-                        
+                          loading ? expired ? <><p className="p text-black font-bold animate-pulse text-center">Hari Sudah lewat :)</p></>
+                            : <ClipLoader
+                              color="#000000"
+                              loading={loading}
+                              size={100}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            /> : jam &&
+                          jam.all.map((data) => {
+                            const isUsed = jam.used.map(t => t.jam).includes(data.jam)
+                            return (isUsed ? <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s bg-red-600 ml-4 md:ml-0 " disabled>{data.jam}</TimeButton> :
+                              <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s ml-4 md:ml-0 hover:bg-gray-400" onClick={(e) => { setPilihJam(e.target.value); setTempTime(e.target.innerHTML) }}>{data.jam}</TimeButton>)
+                          })
+                        }
+
+
                       </div>
                     </div >
                   </div>
@@ -102,9 +111,9 @@ const BookOnline = () => {
                   <p className="text-center h1">Pilih paket</p>
                   <div className="flex flex-col gap-4">
                     <div className="grid grid-cols-2 gap-y-7 mt-4 m-auto">
-                      <Checkbox value={55000} id="2" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berDua</Checkbox>
-                      <Checkbox value={65000} id="4" onClick={(e) => { checked(e);setTemp(e.target.innerHTML)}}>berEMPAT</Checkbox>
-                      <Checkbox value={80000} id="6" onClick={(e) =>{ checked(e);setTemp(e.target.innerHTML)}}>berENAM</Checkbox>
+                      <Checkbox value={55000} id="2" onClick={(e) => { checked(e); setTemp(e.target.innerHTML) }}>berDua</Checkbox>
+                      <Checkbox value={65000} id="4" onClick={(e) => { checked(e); setTemp(e.target.innerHTML) }}>berEMPAT</Checkbox>
+                      <Checkbox value={80000} id="6" onClick={(e) => { checked(e); setTemp(e.target.innerHTML) }}>berENAM</Checkbox>
                     </div>
                     <div className="m-auto md:m-0">
                       <p className="p text-black">Kediri</p>

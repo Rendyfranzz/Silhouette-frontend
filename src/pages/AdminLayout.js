@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react'
+import AnimatedPage from '../components/AnimatedPage'
 import Sidebar from '../components/Sidebar'
 
-const AdminLayout = ({children}) => {
+const AdminLayout = ({ children }) => {
 
   return (
-    <>
-    <div className='flex flex-row relative'>
-    <Sidebar/>
-    <div className='w-screen'>
-        {children}
-    </div>
-    </div>
+    <AnimatedPage>
+      <>
+        <div className='flex flex-row relative'>
+          <Sidebar />
+          <div className='w-screen'>
+            {children}
+          </div>
+        </div>
 
-    </>
+      </>
+    </AnimatedPage>
   )
 }
 

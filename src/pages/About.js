@@ -56,7 +56,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="w-screen flex justify-center items-center flex-col space-y-4">
+          <div className="w-screen flex justify-center items-center flex-col space-y-4 h-96 p-2">
             <p className='h1 text-center font-bold'>Lokasi</p>
             <Map />
           </div>
