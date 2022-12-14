@@ -5,12 +5,13 @@ import ReactPaginate from 'react-paginate'
 import ClipLoader from "react-spinners/ClipLoader";
 import { Dialog, Transition } from '@headlessui/react'
 import { Notify, SuccessNotification } from '../components/Notify';
-import "../style/Style.css"
+import "../style/style.css"
+import { useNavigate } from 'react-router-dom';
 
 const ListOrder = () => {
     const [transaction, setTransaction] = useState([])
     const [page, setPage] = useState(0);
-    const [limit, setLimit] = useState(10);
+    const limit = 10;
     const [pages, setPages] = useState(0);
     const [rows, setRows] = useState(0);
     const [keyword, setKeyword] = useState("");
@@ -19,9 +20,10 @@ const ListOrder = () => {
     const [loading, setLoading] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
     const [transdel, setTransdel] = useState("")
-    //   const [jam ,setJam] = useState("")
+    const navigate = useNavigate()
     useEffect(() => {
         getTransaction();
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, keyword])
 
 
@@ -29,7 +31,6 @@ const ListOrder = () => {
         const response = await axios.get(
             `${process.env.REACT_APP_URL}/transaction?search_query=${keyword}&page=${page}&limit=${limit}`
         );
-        console.log(response.data.result);
         setLoading(false)
         setTransaction(response.data.result);
         setPage(response.data.page);
@@ -37,10 +38,14 @@ const ListOrder = () => {
         setRows(response.data.totalRows);
     }
 
-    const deleteTrans = (userId) => {
+    const deleteTrans = (id) => {
         openModal()
-        setTransdel(userId)
+        setTransdel(id)
     }
+
+    const update = (id) => {
+        navigate(`/editorder/${id}`)
+    };
 
     const confirmDelete = async () => {
         await axios.delete(`${process.env.REACT_APP_URL}/deltrans/${transdel}`)
@@ -49,14 +54,6 @@ const ListOrder = () => {
         getTransaction()
     }
 
-    //   const getTime = async (time) => {
-    //     try {
-    //         const response = await axios.get(`${process.env.REACT_APP_URL}/getjadwalid/${time}`);
-    //         setJam(response.data.jam)
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
     const changePage = ({ selected }) => {
         setPage(selected);
         if (selected === 9) {
@@ -80,6 +77,7 @@ const ListOrder = () => {
     function openModal() {
         setIsOpen(true)
     }
+
     return (
         <AdminLayout>
             {
@@ -152,6 +150,7 @@ const ListOrder = () => {
                             </div>
                         </Dialog>
                     </Transition>
+
                     <div className="flex flex-col">
                         <div className="overflow-x-auto w-full">
                             <div className="py-3 pl-2">
@@ -244,7 +243,7 @@ const ListOrder = () => {
                                                             }
                                                         </td>
                                                         <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                                            <button
+                                                            <button onClick={() => update(data.transuuid)}
                                                                 className="text-green-500 hover:text-green-700"
                                                             >
                                                                 Edit
@@ -278,14 +277,8 @@ const ListOrder = () => {
                         aria-label="pagination"
                     >
                         <ReactPaginate
-                            // previousLabel={"< Prev"}
-                            // nextLabel={"Next >"}
                             pageCount={Math.min(10, pages)}
                             onPageChange={changePage}
-                            // containerClassName={"page-list"}
-                            // pageLinkClassName={"pagination-link"}
-                            // previousLinkClassName={"pagination-previous"}
-                            // nextLinkClassName={"pagination-next"}
                             activeLinkClassName={"pagination-link is-current"}
                             disabledLinkClassName={"pagination-link is-disabled"}
 
@@ -300,13 +293,10 @@ const ListOrder = () => {
                             breakLabel="..."
                             breakClassName="page-item"
                             breakLinkClassName="page-link"
-                            // pageCount={pageCount}
                             marginPagesDisplayed={2}
                             pageRangeDisplayed={5}
-                            // onPageChange={handlePageChange}
                             containerClassName="pagination"
                             activeClassName="active"
-                        // forcePage={pageOffset}
                         />
                     </nav>
                 </div>

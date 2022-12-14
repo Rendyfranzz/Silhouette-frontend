@@ -124,7 +124,11 @@ const UserPayment = () => {
                             </Dialog>
                         </Transition>
                         <div className="flex flex-col">
-                            <h1 className='text-center font-bold text-xl'>Riwayat Transaksi</h1>
+                            <div>
+                                <p className='p text-black font-medium'>Note:Jika ingin melakukan cancel dapat menghubungi nonor berikut</p>
+                                <h1 className='text-center font-bold text-xl'>Riwayat Transaksi</h1>
+                            </div>
+
                             <div className="flex justify-center">
                                 <table className="w-[80%] scale-50 md:scale-100 divide-y divide-gray-200 border rounded-lg">
                                     <thead className="bg-gray-50">
@@ -190,7 +194,7 @@ const UserPayment = () => {
                                                             {data.jadwal.jam}
                                                         </td>
                                                         {
-                                                            data.lunas === "lunas" ? <td className="px-6 py-4 text-sm bg-green-400 text-black whitespace-nowrap">
+                                                            data.lunas === "lunas" || data.lunas === "cancel" ? <td className="px-6 py-4 text-sm bg-green-400 text-black whitespace-nowrap">
                                                                 {data.lunas}
                                                             </td> : <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                                                                 {data.lunas} <button onClick={() => handleSubmit(data)} >|Bayar Sekarang</button>

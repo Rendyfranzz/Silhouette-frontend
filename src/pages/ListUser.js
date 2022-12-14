@@ -4,8 +4,9 @@ import AdminLayout from './AdminLayout'
 import ReactPaginate from 'react-paginate';
 import ClipLoader from "react-spinners/ClipLoader";
 import { Dialog, Transition } from '@headlessui/react'
-import "../style/Style.css"
+import "../style/style.css"
 import { Notify, SuccessNotification } from '../components/Notify';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,7 +14,7 @@ const ListUser = () => {
     //   const [users,setUsers] = useState([])
     const [users, setUsers] = useState([]);
     const [page, setPage] = useState(0);
-    const [limit, setLimit] = useState(10);
+    const limit = useState(10);
     const [pages, setPages] = useState(0);
     const [rows, setRows] = useState(0);
     const [keyword, setKeyword] = useState("");
@@ -22,19 +23,12 @@ const ListUser = () => {
     const [loading, setLoading] = useState(true)
     const [isOpen, setIsOpen] = useState(false)
     const [userdel, setUserdel] = useState("")
+    const navigate = useNavigate()
 
     useEffect(() => {
         getUsers();
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, keyword]);
-
-    // useEffect(() => {
-    //     getUsers();
-    // }, [])
-
-    //   const getUsers = async () =>{
-    //     const response = await axios.get(`${process.env.REACT_APP_URL}/users`);
-    //     setUsers(response.data)
-    //   }
 
     const deleteUser = (userId) => {
         openModal()
@@ -81,6 +75,9 @@ const ListUser = () => {
         setMsg("");
         setKeyword(query);
     };
+    const edituser = (id) => {
+        navigate(`/edituser/${id}`)
+    }
 
     function closeModal() {
         setIsOpen(false)
@@ -245,7 +242,7 @@ const ListUser = () => {
                                                                 {data.role}
                                                             </td>
                                                             <td className="px-4 py-2 text-sm font-medium text-right whitespace-nowrap">
-                                                                <button
+                                                                <button onClick={() => edituser(data.uuid)}
                                                                     className="text-green-500 hover:text-green-700"
                                                                 >
                                                                     Edit

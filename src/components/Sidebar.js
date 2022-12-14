@@ -1,5 +1,5 @@
 import { NavSide } from './NavSide'
-import { FaHome, FaUser, FaShoppingCart, FaSignOutAlt, FaCalendarAlt } from 'react-icons/fa'
+import { FaUser, FaShoppingCart, FaSignOutAlt, FaCalendarAlt } from 'react-icons/fa'
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { logOut, reset } from "../feature/authSlice"
@@ -21,12 +21,7 @@ const Sidebar = () => {
                 </div>
                 <div className='flex flex-col justify-between h-full'>
                     <ul className="flex flex-col py-4">
-                        <li>
-                            <NavSide to="/admin">
-                                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FaHome /></span>
-                                <span className="text-sm font-medium">Dashboard</span>
-                            </NavSide>
-                        </li>
+
                         <li>
                             <NavSide to="/listuser">
                                 <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><FaUser /></span>

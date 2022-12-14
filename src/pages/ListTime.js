@@ -4,9 +4,9 @@ import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
 import ClipLoader from "react-spinners/ClipLoader";
 import { Dialog, Transition } from '@headlessui/react'
-import "../style/Style.css"
+import "../style/style.css"
 import { Notify, SuccessNotification } from '../components/Notify';
-import { useNavigate } from 'react-router-dom';
+import { FaPlus } from "react-icons/fa"
 const ListTime = () => {
     const [data, setData] = useState("")
     const [loading, setLoading] = useState(true)
@@ -201,7 +201,7 @@ const ListTime = () => {
                                 <div className="py-3 pl-2">
 
                                     <div className="relative max-w-xs">
-                                        <button className='bg-black' onClick={openModal2}>Tambah data</button>
+                                        <button className='border rounded-md flex justify-center items-center hover:bg-slate-500' onClick={openModal2}><FaPlus color='black' /><p className='p text-black'>Tambah data</p></button>
                                     </div>
 
                                 </div>

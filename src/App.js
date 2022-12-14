@@ -8,7 +8,6 @@ import PageNotFound from './pages/PageNotFound';
 import PriceList from './pages/PriceList';
 import Register from './pages/Register';
 import BookNext from './pages/BookNext';
-import Admin from './pages/AdminDashboard';
 import ListUser from './pages/ListUser';
 import ListOrder from './pages/ListOrder';
 import Payment from './pages/Payment';
@@ -16,6 +15,8 @@ import { AnimatePresence } from 'framer-motion';
 import UserPayment from './pages/UserPayment';
 import Payback from './pages/Payback';
 import ListTime from './pages/ListTime';
+import EditUser from './pages/EditUser';
+import EditOrder from './pages/EditOrder';
 function App() {
   let location = useLocation()
 
@@ -29,11 +30,12 @@ function App() {
         <Route path='/bookOnline' element={<BookOnline />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/admin' element={<Admin />} />
         <Route path='/booknext' element={<BookNext />} />
         <Route path='/listuser' element={<ListUser />} />
         <Route path='/listorder' element={<ListOrder />} />
         <Route path='/listtime' element={<ListTime />} />
+        <Route path='/edituser/:id' element={<EditUser />} />
+        <Route path='/editorder/:id' element={<EditOrder />} />
         <Route path='/payment' element={<Payment />} />
         <Route path='/payback/:qrid' element={<Payback />} />
         <Route path='/userdetail/:uuid' element={<UserPayment />} />
