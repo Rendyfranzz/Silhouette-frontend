@@ -41,7 +41,7 @@ const Register = () => {
     return (
         <AnimatedPage>
             <div className='h-screen text-black flex justify-center items-center flex-col space-y-4 md:space-y-0'>
-                <button className='absolute left-10 top-24' onClick={handleClick}>Back</button>
+                <button className='font-bold absolute left-10 top-24' onClick={handleClick}>{`< Back`}</button>
                 <div className='w-[80%] md:w-[30%] h-[70%] md:h-[90%]'>
                     <div className='flex flex-col justify-center items-center'>
                         <p className="h1">Register</p>

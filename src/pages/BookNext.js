@@ -26,14 +26,12 @@ const BookNext = () => {
 
     useEffect(() => {
         getChoice(jam)
-
     }, [jam])
 
     const createTransaction = async (e) => {
         e.preventDefault();
-        // console.log({jam,tanggal,paket});
-        // console.log(user);
         if (!user) return Notification("Harap Login ke Akun Anda")
+        if (!pesan) return Notification("Isi pesan")
         const Id = +new Date();
         const qrId = `silhouette-${Id}`
         dispatch(addQr(qrId))
@@ -71,11 +69,18 @@ const BookNext = () => {
         }
     }
 
+    const handleClick = () => {
+        navigate(-1)
+    }
+
+
+
     return (
         <AnimatedPage>
             <>
                 <Navbar />
                 <div className='h-screen w-screen flex flex-row items-center justify-center font-popin text-black'>
+                    <button className='font-bold absolute left-20 top-32' onClick={handleClick}>{`< Back`}</button>
                     <div className='w-full flex justify-center p-4'>
                         <form className='flex flex-col md:flex-row justify-center items-center md:space-y-0 space-y-8 md:space-x-8' onSubmit={createTransaction}>
                             <div className='flex flex-col w-72'>
