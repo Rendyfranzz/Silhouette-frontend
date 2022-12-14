@@ -30,7 +30,6 @@ const Payback = () => {
     const getQrCode = async () => {
         try {
             const response = await axios.get(`${process.env.REACT_APP_URL}/getcode/${param.qrid}`);
-            // console.log(response.data);
             setCode(response.data)
         } catch (err) {
             console.log(`getcode ${err}`);
@@ -47,7 +46,7 @@ const Payback = () => {
                         <img className='m-auto' src={code} alt="qrcode" />
                         <p className="text-gray-900 text-xl font-medium mb-2">Scan Qris di Atas</p>
                         <p className="text-gray-700 text-base mb-4">
-                            With supporting text below as a natural lead-in to additional content.
+
                         </p>
                     </div>
                     <div className=''>

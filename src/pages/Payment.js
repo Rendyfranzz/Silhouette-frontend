@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Payment = () => {
     const [code, setCode] = useState("")
     const { qr } = useSelector((state) => state.book)
-    const {user}= useSelector((state)=> state.auth)
+    const { user } = useSelector((state) => state.auth)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const Payment = () => {
                         <img className='m-auto' src={code} alt="qrcode" />
                         <p className="text-gray-900 text-xl font-medium mb-2">Scan Qris di Atas</p>
                         <p className="text-gray-700 text-base mb-4">
-                            With supporting text below as a natural lead-in to additional content.
+
                         </p>
                     </div>
                     <div className=''>

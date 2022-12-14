@@ -31,7 +31,7 @@ const Navbar = (children) => {
                 </button>
             </div>
             <div className='flex justify-center md:justify-end'>
-                <ul className={`text-black text-lg md:text-xl font-medium flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:justify-items-end md:items-end items-center space-x-2 md:space-x-6 transition-all duration-1000 md:flex ${open ? "" : "hidden"}`}>
+                <ul className={`text-black text-lg md:text-xl font-bold flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:justify-items-end md:items-end items-center space-x-2 md:space-x-6 transition-all duration-1000 md:flex ${open ? "" : "hidden"}`}>
                     <li className=''>
                         <NavLink to='/home' className={({ isActive }) => isActive ? "text-cyan-500" : ""}>Home</NavLink>
                     </li>

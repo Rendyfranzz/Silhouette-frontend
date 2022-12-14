@@ -37,7 +37,6 @@ const UserPayment = () => {
 
     const handleSubmit = async (data) => {
         const response = await axios.get(`${process.env.REACT_APP_URL}/getstatus?date=${data.tanggal}&time=${data.jadwal.uuid}`)
-        console.log(response.data);
         if (response.data != null) {
             openModal()
         } else {
