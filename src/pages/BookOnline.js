@@ -68,9 +68,6 @@ const BookOnline = () => {
       console.log(err);
     }
   }
-  // const jamString = jam?.all?.map((tes) => tes.jam)
-  // const available = jamString?.filter(x => jam.used.map(t => t.jam).includes(x));
-  // console.log({jamString, available})
   return (
     <AnimatedPage>
       <>
@@ -100,8 +97,6 @@ const BookOnline = () => {
                               <TimeButton key={data.uuid} value={data.uuid} className="w-14 md:w-32 border-solids border-2 border-black rounded-s ml-4 md:ml-0 hover:bg-gray-400" onClick={(e) => { setPilihJam(e.target.value); setTempTime(e.target.innerHTML) }}>{data.jam}</TimeButton>)
                           })
                         }
-
-
                       </div>
                     </div >
                   </div>
