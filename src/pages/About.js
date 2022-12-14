@@ -40,16 +40,8 @@ const About = () => {
               <table className='border-separate border-spacing-2 border-spacing-x-8'>
                 <tbody>
                   <tr>
-                    <td>Sabtu-Rabu</td>
+                    <td>Setiap Hari</td>
                     <td>10.00-20.00</td>
-                  </tr>
-                  <tr>
-                    <td>Kamis</td>
-                    <td>10.00-15.00</td>
-                  </tr>
-                  <tr>
-                    <td>Jumat</td>
-                    <td>Tutup</td>
                   </tr>
                 </tbody>
               </table>

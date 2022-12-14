@@ -124,12 +124,12 @@ const UserPayment = () => {
                             </Dialog>
                         </Transition>
                         <div className="flex flex-col">
-                            <div>
-                                <p className='p text-black font-medium'>Note:Jika ingin melakukan cancel dapat menghubungi nonor berikut</p>
-                                <h1 className='text-center font-bold text-xl'>Riwayat Transaksi</h1>
-                            </div>
+                            <h1 className='text-center font-bold text-xl'>Riwayat Transaksi</h1>
 
-                            <div className="flex justify-center">
+                            <div className="flex justify-center flex-col items-center">
+                                <div className='flex justify-start text-left'>
+                                    <p className='p text-left text-gray-900'><span className='p text-black font-semibold'>Note:</span>Jika ingin melakukan cancel dapat menghubungi nomor berikut : <a className='underline italic' href='https://wa.me/085758093907'>085758093907</a></p>
+                                </div>
                                 <table className="w-[80%] scale-50 md:scale-100 divide-y divide-gray-200 border rounded-lg">
                                     <thead className="bg-gray-50">
                                         <tr>
