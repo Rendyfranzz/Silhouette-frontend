@@ -14,6 +14,8 @@ export const loginUser = createAsyncThunk("user/loginUser", async (user, thunkAP
         const response = await axios.post(`${process.env.REACT_APP_URL}/login`, {
             email: user.email,
             password: user.password
+        }, {
+            withCredentials: true
         });
         return response.data
     } catch (error) {
