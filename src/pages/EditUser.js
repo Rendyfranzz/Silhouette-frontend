@@ -17,7 +17,7 @@ const EditOrder = () => {
     useEffect(() => {
         const getUserById = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/users/${id.id}`);
+                const response = await axios.get(`${process.env.REACT_APP_URL}/users/${id.id}`);
                 console.log(response);
                 setName(response.data.name);
                 setEmail(response.data.email);

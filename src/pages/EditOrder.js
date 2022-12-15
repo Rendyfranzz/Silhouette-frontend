@@ -12,7 +12,7 @@ const EditOrder = () => {
     useEffect(() => {
         const getTransId = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/transaction/${id.id}`);
+                const response = await axios.get(`${process.env.REACT_APP_URL}/transaction/${id.id}`);
                 setLunas(response.data.lunas)
             } catch (error) {
                 console.log(error);
