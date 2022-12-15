@@ -12,6 +12,7 @@ const Payback = () => {
 
     useEffect(() => {
         getQrCode()
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {

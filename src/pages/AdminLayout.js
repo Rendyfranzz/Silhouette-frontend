@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import AnimatedPage from '../components/AnimatedPage'
 import Sidebar from '../components/Sidebar'
 
