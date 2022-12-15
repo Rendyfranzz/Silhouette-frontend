@@ -43,7 +43,7 @@ const Login = () => {
                 <div className='w-[80%] md:w-[30%] h-[60%]'>
                     <div className='flex flex-col justify-center items-center'>
                         <div><p className="h1">LOGIN</p></div>
-                        <div className="flex flex-row items-center justify-center"><p className="p text-black">Belum Punya akun?</p><p className=" overflow-hidden"><NavLink className="text-black p" to="/register" >Daftar</NavLink></p></div>
+                        <div className="flex flex-row items-center justify-center"><p className="p text-black">Belum Punya akun?</p><p className=" overflow-hidden"><NavLink className="text-black p underline italic" to="/register" >Daftar</NavLink></p></div>
                     </div>
                     <form className='flex flex-col space-y-6' onSubmit={Auth}>
                         {isError &&

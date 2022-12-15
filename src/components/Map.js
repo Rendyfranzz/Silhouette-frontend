@@ -3,7 +3,7 @@
 const Map = () => {
   return (
     <>
-      <div className="gmap_canvas w-full h-full"><iframe title="map" className="gmap_iframe w-full h-full" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Silhouette.Studios&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+      <div className="gmap_canvas w-full h-full"><iframe title="map" className="gmap_iframe w-full h-full" src="https://maps.google.com/maps?q=Silhouette.Studios%20Jl.%20Asparaga%20No.12,%20Tegalsari,%20Tulungrejo,%20Kec.%20Pare,%20Kabupaten%20Kediri,%20Jawa%20Timur%2064212&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe></div>
     </>
   )
 }
